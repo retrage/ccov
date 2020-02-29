@@ -75,10 +75,6 @@ void CCov::addCoverageTraceCall(Instruction *Inst,
     FunctionName = Builder.CreateGlobalStringPtr(FunctionNameStr);
     Attribute |= CCov_Entry;
   }
-  errs() << Loc.getLine() << ":" << Inst->getOpcodeName();
-  if (Inst->isTerminator())
-    errs() << ": terminator";
-  errs() << "\n";
   if (Inst->getOpcode() == Instruction::Ret)
     Attribute |= CCov_Ret;
   Args[0] = FileName;
