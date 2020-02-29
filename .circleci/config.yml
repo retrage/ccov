@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ubuntu:focal
+    steps:
+      - run:
+          name: Install dependencies
+          command: |
+            apt update
+            apt install -y cmake git g++ llvm-9-dev
+            apt clean
+      - checkout
+      - run:
+          name: Build
+          command: |
+            mkdir build
+            cd build
+            cmake ..
+            make
