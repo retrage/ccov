@@ -1,4 +1,13 @@
-# ccov
+# ccov: Code Coverage based printf() debug support tool
+
+`printf()` debug is simple yet powerful when debugger is not available.
+We often insert `printf()` to trace all possible code path to find out
+bug location. However, it is time-consuming and hard to inserting correctly.
+This repository tries to automate this task.
+
+ccov is an LLVM pass that inserts trace functions to the target
+at BasicBlock level.
+The trace function outputs execution log at runtime.
 
 ## Prerequisites
 
